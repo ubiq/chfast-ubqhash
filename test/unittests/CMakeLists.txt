@@ -8,6 +8,7 @@ add_executable(
     ethash-test
     helpers.hpp
     test_bit_manipulation.cpp
+    test_blake2b.cpp
     test_cases.hpp
     test_ethash.cpp
     test_ethash_cxx.cpp
@@ -16,6 +17,7 @@ add_executable(
     test_managed.cpp
     test_primes.cpp
     test_progpow.cpp
+    test_ubqhash.cpp
 )
 
 target_link_libraries(ethash-test PRIVATE ethash GTest::gtest GTest::main)

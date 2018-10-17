@@ -14,7 +14,8 @@ add_executable(ethash-bench
     progpow_benchmarks.cpp
     threadsync_benchmarks.cpp
     threadsync_utils.hpp
-    threadsync_utils.cpp)
+    threadsync_utils.cpp
+)
 target_link_libraries(ethash-bench PRIVATE ethash benchmark::benchmark)
 target_include_directories(ethash-bench PRIVATE ${ETHASH_PRIVATE_INCLUDE_DIR})
 set_target_properties(ethash-bench PROPERTIES RUNTIME_OUTPUT_DIRECTORY ..)

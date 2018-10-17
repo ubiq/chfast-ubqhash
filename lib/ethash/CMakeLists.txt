@@ -9,6 +9,7 @@ set(include_dir ${PROJECT_SOURCE_DIR}/include)
 add_library(
     ethash
     bit_manipulation.h
+    blake2b.c
     builtins.h
     endianness.hpp
     ${include_dir}/ethash/ethash.h
@@ -28,6 +29,8 @@ add_library(
     primes.c
     progpow-internal.hpp
     progpow.cpp
+    ${include_dir}/ethash/ubqhash.hpp
+    ubqhash.cpp
 )
 
 target_include_directories(ethash PUBLIC $<BUILD_INTERFACE:${include_dir}>$<INSTALL_INTERFACE:include>)
