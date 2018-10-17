@@ -3,6 +3,7 @@
 // Licensed under the Apache License, Version 2.0. See the LICENSE file.
 
 #include "ethash-internal.hpp"
+#include <ethash/ubqhash.hpp>
 
 #include <memory>
 #include <mutex>
@@ -52,7 +53,12 @@ void update_local_context(int epoch_number)
         shared_context.reset();
 
         // Build new context.
-        shared_context = create_epoch_context(epoch_number);
+        if (epoch_number >= 22)
+        {
+            shared_context = ubqhash::create_epoch_context(epoch_number);
+        } else {
+            shared_context = create_epoch_context(epoch_number);
+        }
     }
 
     thread_local_context = shared_context;
@@ -73,7 +79,12 @@ void update_local_context_full(int epoch_number)
         shared_context_full.reset();
 
         // Build new context.
-        shared_context_full = create_epoch_context_full(epoch_number);
+        if (epoch_number >= 22)
+        {
+            shared_context_full = ubqhash::create_epoch_context_full(epoch_number);
+        } else {
+            shared_context = create_epoch_context(epoch_number);
+        }
     }
 
     thread_local_context_full = shared_context_full;
