@@ -11,7 +11,6 @@ add_executable(
     test_blake2b.cpp
     test_cases.hpp
     test_ethash.cpp
-    test_ethash_cxx.cpp
     test_keccak.cpp
     test_kiss.cpp
     test_managed.cpp
@@ -20,5 +19,5 @@ add_executable(
     test_ubqhash.cpp
 )
 
-target_link_libraries(ethash-test PRIVATE ethash GTest::gtest GTest::main)
+target_link_libraries(ethash-test PRIVATE ethash GTest::gtest_main)
 target_include_directories(ethash-test PRIVATE ${ETHASH_PRIVATE_INCLUDE_DIR})

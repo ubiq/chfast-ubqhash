@@ -11,6 +11,7 @@
 
 #include <array>
 #include <future>
+#include <thread>
 
 using namespace ethash;
 
